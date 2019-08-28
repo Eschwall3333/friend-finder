@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>This Example</title>
+</head>
+<body>
+        <div class="jumbotron">
+                <h1 class="display-4">Wanna hang out with Batman?</h1>
+                <p class="lead">So you want to hang out with Batman, well I do too and he said no. He said it had something to do with "too dangerous"..... "justice"..... "busy hunting the joker"...blah blah blah blah. All I know is that you've got to answer some questions that the world's greatest detective put together himself and if you pass then...uhhhh.....you get to chill in the Bat cave and do cool stuff. If you don't get Batman from the quiz then have no fear you'll probably get one of his other buddies.....</p>
+                <hr class="my-4">
+                <p>GOOD LUCK!!!</p>
+                <a class="btn btn-primary btn-lg" href="/survey.html" role="button">TO THE BAT CAVE!!!</a>
+              </div>
+  
+              <footer>
+                    <div class="container">
+                        <a href="/api/friends">Are you friends with Batman API</a>
+                        <span>|</span>
+                        <a href="https://github.com/Eschwall3333/friend-finder">GitHub</a>
+                    </div>
+                </footer>
+</body>
+</html>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous">
+  </script>
+
+  <script>
+  type="text/javascript">
+	$("#submitBtn").on("click", function(event) {
+		event.preventDefault();
+		var valid = true;
+		if($("#name").val() === "" || $("#photo").val() === "") {
+			valid = false;
+		} else if($("#question1").val() === "empty" || $("#question2").val() === "empty" || $("#question3").val() === "empty" || $("#question4").val() === "empty" || $("#question5").val() === "empty" || $("#question6").val() === "empty" || $("#question7").val() === "empty" || $("#question8").val() === "empty" || $("#question9").val() === "empty" || $("#question10").val() === "empty") {
+			valid = false;
+		}
+		if(valid === true) {
+			var newUser = {
+				name: $("#name").val().trim(),
+				photo: $("#photo").val().trim(),
+				scores: [
+					$("#question1").val(),
+					$("#question2").val(),
+					$("#question3").val(),
+					$("#question4").val(),
+					$("#question5").val(),
+					$("#question6").val(),
+					$("#question7").val(),
+					$("#question8").val(),
+					$("#question9").val(),
+					$("#question10").val()
+				]
+			};
+			var currentURL = window.location.origin;
+			// Ajax call for receiving response after POST req
+			$.post(currentURL + "/api/friends", newUser, function(data) {
+				$("#bestFriend").text(data.name);
+				$("#bestFriendPhoto").attr("src", data.photo);
+				$("#bestFriendModal").modal("toggle");
+			});
+		} else {
+			// If a required field is missing, show alert
+			alert("Survey is incomplete!");
+		}
+	});
+  
+  
+  </script>
