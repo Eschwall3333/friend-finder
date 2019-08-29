@@ -1,14 +1,14 @@
 <head>
  <meta charset="UTF-8"> 
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      
+ <link rel="stylesheet" type="text/css" href="style.css">
  <title>This Example</title>
 </head>
 <body>
 
         <div class="container content">
                 <h1>Survey</h1>
-                <p>Take a quick survey to find your perfect match! These questions are answered by the numbers 1 through 5. If you really, really disagree with the statement, your answer would be 1. If you find a statement to hit extremely close to home, put in a 5.</p>
+                <p>Find out which Batman sidekick....or villain.....is meant to be your best friend!!! Click one if you disagree with the question and 5 if you're all about it!!</p>
                 <form>
                     <div class="form-group">
                         <input id="name" type="text" class="form-control" placeholder="Name (Required)">
@@ -131,20 +131,19 @@
                     <button id="submitBtn" type="submit" class="btn btn-success btn-lg">Submit</button>
                 </div>
                 
-                <!-- Modal after survey completion -->
-                <div id="batManFriendModal" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h3 class="modal-title">Your New Best Friend</h1>
+                <div id="batManFriendModel" class="model fade" role="dialog">
+                    <div class="model-dialog">
+                        <div class="model-content">
+                            <div class="model-header">
+                                <button type="button" class="close" data-dismiss="model">&times;</button>
+                                <h3 class="model-title">Check it out!</h1>
                             </div>
-                            <div class="modal-body">
+                            <div class="model-body">
                                 <h2 id="bestFriend"></h2>
                                 <img id="bestFriendPhoto" src="#">
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <div class="model-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="model">Close</button>
                             </div>
                         </div>
                     </div>
@@ -160,10 +159,11 @@
             </footer>
         
             <script
-              src="https://code.jquery.com/jquery-3.2.1.min.js"
-              integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-              crossorigin="anonymous"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+                
 
             <script>
                     type="text/javascript">
@@ -193,10 +193,10 @@
                                   ]
                               };
                               var currentURL = window.location.origin;
-                              $.post(currentURL + "/api/batfriends", newUser, function(data) {
+                              $.post(currentURL + "/api/batFriends", newUser, function(data) {
                                   $("#sidekick").text(data.name);
                                   $("#sideKickPic").attr("src", data.photo);
-                                  $("#batManFriendModal").modal("toggle");
+                                  $("#batManFriendmodel").model("toggle");
                               });
                           } else {
                               alert("Survey Not Finished!");

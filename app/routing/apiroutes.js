@@ -1,4 +1,4 @@
-var batFriends = require("../data/batfriends");
+var batFriends = require("../data/batFriends");
 
 module.exports = function(app) {
   app.get("/api/batFriends", function(req, res) {
@@ -20,7 +20,7 @@ module.exports = function(app) {
     for(var i = 0; i < batFriends.length; i++) {
       var totalDifference = 0;
       for(var j = 0; j < batFriends[i].scores.length; j++) {
-        var difference = Math.abs(user.scores[j] - friends[i].scores[j]);
+        var difference = Math.abs(user.scores[j] - batFriends[i].scores[j]);
         totalDifference += difference;
       }
 
@@ -30,8 +30,8 @@ module.exports = function(app) {
       }
     }
 
-    friends.push(user);
+    batFriends.push(user);
 
-    res.json(friends[sideKickIndex]);
+    res.json(batFriends[sideKickIndex]);
   });
 };
