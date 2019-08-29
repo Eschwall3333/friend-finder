@@ -153,7 +153,7 @@
         
             <footer>
                 <div class="container">
-                    <a href="/api/friends">Are you friends with Batman API</a>
+                    <a href="/api/batfriends">Are you friends with Batman API</a>
                     <span>|</span>
                     <a href="https://github.com/Eschwall3333/friend-finder">GitHub</a>
                 </div>
@@ -193,7 +193,7 @@
                                   ]
                               };
                               var currentURL = window.location.origin;
-                              $.post(currentURL + "/api/sidekicks", newUser, function(data) {
+                              $.post(currentURL + "/api/batfriends", newUser, function(data) {
                                   $("#sidekick").text(data.name);
                                   $("#sideKickPic").attr("src", data.photo);
                                   $("#batManFriendModal").modal("toggle");
