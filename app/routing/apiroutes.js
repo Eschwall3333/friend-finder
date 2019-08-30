@@ -2,7 +2,7 @@ var batFriends = require("../data/batFriends");
 
 module.exports = function(app) {
   app.get("/api/batFriends", function(req, res) {
-    res.json(friends);
+    res.json(batFriends);
   });
 
   app.post("/api/batFriends", function(req, res) {
